@@ -14,8 +14,18 @@
 | `common/` | 両方の PC で使う共通部品（`common.ps1`）。配布時に両方のフォルダへコピーする |
 | `config/` | 設定ファイルの見本（`*.sample`）。配布時に `.sample` を外した名前で入る |
 | `docs/` | 利用者向けの説明書 |
-| `tools/` | 配布用 zip を作るスクリプト（`build.ps1`） |
+| `tools/` | 配布用 zip を作るスクリプト（`build.ps1`）、最新版を取得する bat（`get_laptop.bat` / `get_desktop.bat`） |
 | `VERSION` | 版番号 |
+
+## 最新版の取得（使う PC で）
+
+GitHub のアカウントがあり、このリポジトリを見られる人は、zip を使わずに最新版を取得できます。
+
+1. Git for Windows をインストールする
+2. `tools/get_laptop.bat`（ノート PC）または `tools/get_desktop.bat`（デスクトップ PC）を、ツールを置くフォルダ（例：`C:\tools\worktimer`）にコピーして実行する
+3. 初回は GitHub のサインイン画面が出るのでサインインする
+
+プログラム（`.bat` / `.ps1`）は上書きされます。設定（ini・`tasks.csv`）は、まだないときだけ見本から作られ、今の設定は消えません。もう一度実行すれば、その時点の最新版に更新されます（取得したものは `%LOCALAPPDATA%\opbm-worktiimer\repo` に置かれます）。
 
 ## 配布用 zip の作り方
 
