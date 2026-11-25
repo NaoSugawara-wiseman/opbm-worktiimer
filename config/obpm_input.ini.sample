@@ -1,0 +1,46 @@
+﻿; obpm_input 設定ファイル (デスクトップ側。; で始まる行はコメント。パスは " で囲まずそのまま書く)
+
+[files]
+; 共有フォルダ上の作業タイマーの data フォルダ (ノートの worktimer.ini の data_dir と同じ場所)
+data_dir = \\fileserver\share\worktimer\data
+
+[run]
+; check  = 読み取りのみ。入力先のセルを探して現在の値を読み、入力予定と並べてログに出す (最初はこれで確認)
+; manual = 入力して読み返すまで。更新は押さずに止まるので、画面を見て自分で「更新」を押す (1 プロジェクトずつ)
+; live   = 入力・読み返し・更新まで自動
+mode = check
+; 工数の丸め (ノートの worktimer.ini と同じにする)
+round_unit_min = 15
+round_mode = nearest
+
+[daily_total]
+; 終わった日 (前日以前・「本日終了」を押した日) の合計を社内ルールに合わせる (true / false)
+;   合計 = 定時 + 残業 (残業は下の単位未満を切り捨て)。ずれは一番長いタスクで調整。定時未満の日は調整しない
+adjust = true
+; 定時の工数 (時間)
+base_hours = 7.75
+; 残業の計上単位 (時間)
+overtime_step_hours = 0.5
+
+[schedule]
+; 自動で入力する時刻 (カンマ区切り。平日のみ)。空なら「本日終了」の依頼のときだけ入力する
+times =
+; 「本日終了」の依頼があるかを確認する間隔 (分)
+request_check_min = 5
+
+[obpm]
+; 工数入力画面のタイトルに含まれる文字
+title_keyword = 工数入力
+; OBPM の実行ファイルのパス (任意)。空ならスタートメニューのショートカットなどから自動で探す
+;   (スタートメニューの OBPM のアイコンを右クリック →「ファイルの場所を開く」で確認)
+obpm_exe =
+; 入力欄・ボタンの操作方法: mouse = マウスでクリック / message = マウスを使わない (リモートデスクトップを最小化して使うとき)
+input_method = mouse
+; セルに数値を打った後に押す確定キー ({ENTER} / {TAB} など)
+commit_key = {ENTER}
+; 確定キーを押した後に選択セルが下へ動く場合は down、動かない場合は none、右へ動く場合は right
+after_commit = none
+; キー操作の間隔 (秒)。入力が不安定なら大きくする
+key_wait = 0.15
+; 検索ボタンを押してから表が更新されるまで待つ秒数
+search_wait = 2.0

@@ -1,0 +1,36 @@
+# ---- 人ごと・PC ごとのファイル (リポジトリに入れない) ----
+# 自動ログインの情報 (暗号化したパスワード) と、その失敗記録
+obpm_login.dat
+obpm_login_failed.json
+# 見つけた OBPM の場所
+obpm_launcher.txt
+
+# 実際に使う設定 (見本は config/*.sample に置く)
+*.ini
+tasks.csv
+tasks_candidates.csv
+
+# 共有フォルダに作られるもの (作業記録・ログ・状態)
+data/
+records.csv
+records.csv.bak
+running.json
+closed_days.json
+input_request.json
+obpm_input_status.json
+obpm_input_state.json
+obpm_input_log.txt
+timer_notice.json
+holidays.csv
+error.log
+*.log
+
+# ---- ビルド成果物 ----
+dist/
+
+# ---- OS・エディタ ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+*.swp

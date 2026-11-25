@@ -1,0 +1,18 @@
+# このツールは Windows PowerShell 5.1 で動かすため、文字コードと改行を固定する
+#   .ps1 / .ini / .csv / .md : UTF-8 (BOM 付きはそのまま保持) + 改行 CRLF
+#   .bat                     : Shift_JIS + CRLF。Git に変換させない (バイトのまま保存)
+
+* text=auto eol=crlf
+
+*.ps1    text eol=crlf
+*.psd1   text eol=crlf
+*.ini    text eol=crlf
+*.sample text eol=crlf
+*.csv    text eol=crlf
+*.md     text eol=crlf
+
+# Shift_JIS のバッチは変換しない (差分は文字化けして見えることがある)
+*.bat    -text diff
+
+*.zip    binary
+*.png    binary

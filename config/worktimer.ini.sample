@@ -1,0 +1,35 @@
+﻿; worktimer 設定ファイル (; で始まる行はコメント。パスは " で囲まずそのまま書く)
+
+[files]
+; タスク一覧の CSV (相対パスはこの ini のフォルダ基準)
+tasks_csv = tasks.csv
+; 作業記録・集計結果の保存先フォルダ (相対パスはこの ini のフォルダ基準)
+; デスクトップで自動入力する場合は、両方の PC から見えるファイルサーバーのフォルダにする
+;   例: data_dir = \\fileserver\share\worktimer\data
+data_dir = data
+
+[timer]
+; この分数だけ PC 操作がなければ、最後に操作した時刻で自動停止 (0 = 自動停止しない)
+idle_stop_min = 10
+; true = タイマー画面を常に手前に表示
+always_on_top = true
+; true = 画面の右下に小さい画面 (タスク選択・開始・停止) を常に表示する。大きい画面は小さい画面の「画面」ボタンで開閉
+mini_window = true
+; 小さい画面にマウスが乗っていないときの不透明度 (0.2～1.0。1.0 = 透けない)
+mini_opacity = 0.5
+
+[summary]
+; 工数の丸め単位 (分)。OBPM の 0.25 時間刻みに合わせるなら 15
+round_unit_min = 15
+; 丸め方: nearest = 四捨五入 / up = 切り上げ / down = 切り捨て
+round_mode = nearest
+
+[daily]
+; 1 日の定時の工数 (時間)。「本日終了」のとき、作業時間の合計がこれに足りなければ確認する
+base_hours = 7.75
+
+[obpm]
+; true = タイマー起動時に SI Object Browser PM が起動していなければ起動する
+launch_obpm = false
+; SI Object Browser PM の実行ファイルのパス (スタートメニューのアイコンを右クリック →「ファイルの場所を開く」で確認)
+obpm_exe =
